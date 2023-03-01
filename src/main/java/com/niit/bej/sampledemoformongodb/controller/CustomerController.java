@@ -45,4 +45,13 @@ public class CustomerController {
         else
             return new ResponseEntity<>(fetchedCustomer, HttpStatus.FOUND);
     }
+
+    @GetMapping("/getcustomerbyemail/{emailid}")
+    public ResponseEntity<?> getOneCustomerByEmail(@PathVariable String emailid) {
+        Customer fetchedCustomer = customerService.getCustomerByEmail(emailid);
+        if (fetchedCustomer == null)
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        else
+            return new ResponseEntity<>(fetchedCustomer, HttpStatus.FOUND);
+    }
 }

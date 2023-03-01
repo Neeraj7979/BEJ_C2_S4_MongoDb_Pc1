@@ -39,4 +39,13 @@ public class CustmoerServiceImpl implements CustomerService {
         else
             return null;
     }
+
+    @Override
+    public Customer getCustomerByEmail(String emailid) {
+        Optional<Customer> customerOptional = customerRepository.findByCustEmailId(emailid);
+        if (customerOptional.isPresent())
+            return customerOptional.get();
+        else
+            return null;
+    }
 }
