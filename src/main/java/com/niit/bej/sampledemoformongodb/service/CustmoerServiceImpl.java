@@ -20,7 +20,10 @@ public class CustmoerServiceImpl implements CustomerService {
 
     @Override
     public Customer addCustomer(Customer customer) {
-        return customerRepository.save(customer);
+        if (customerRepository.findById(customer.getCustID()).isPresent())
+            return null;
+        else
+            return customerRepository.save(customer);
     }
 
     @Override
