@@ -13,14 +13,25 @@ public class Customer {
     private String custEmailId;
     private Address custAddress;
 
+    private String custType;
+
     public Customer() {
     }
 
-    public Customer(int custID, String custName, String custEmailId, Address custAddress) {
+    public Customer(int custID, String custName, String custEmailId, Address custAddress, String custType) {
         this.custID = custID;
         this.custName = custName;
         this.custEmailId = custEmailId;
         this.custAddress = custAddress;
+        this.custType = custType;
+    }
+
+    public String getCustType() {
+        return custType;
+    }
+
+    public void setCustType(String custType) {
+        this.custType = custType;
     }
 
     public int getCustID() {
@@ -60,12 +71,12 @@ public class Customer {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Customer customer = (Customer) o;
-        return custID == customer.custID && Objects.equals(custName, customer.custName) && Objects.equals(custEmailId, customer.custEmailId) && Objects.equals(custAddress, customer.custAddress);
+        return custID == customer.custID && Objects.equals(custName, customer.custName) && Objects.equals(custEmailId, customer.custEmailId) && Objects.equals(custAddress, customer.custAddress) && Objects.equals(custType, customer.custType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(custID, custName, custEmailId, custAddress);
+        return Objects.hash(custID, custName, custEmailId, custAddress, custType);
     }
 
     @Override
@@ -75,6 +86,7 @@ public class Customer {
                 ", custName='" + custName + '\'' +
                 ", custEmailId='" + custEmailId + '\'' +
                 ", custAddress=" + custAddress +
+                ", custType='" + custType + '\'' +
                 '}';
     }
 }
