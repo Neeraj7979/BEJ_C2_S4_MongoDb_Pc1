@@ -53,4 +53,9 @@ public class CustmoerServiceImpl implements CustomerService {
     public List<Customer> getAllCustomerByCity(String city) {
         return customerRepository.findByCustomerCity(city);
     }
+
+    @Override
+    public List<Customer> getAllCustomerByCityAndType(String city, String type) {
+        return customerRepository.findByCustomerCityAndType(type, city);
+    }
 }

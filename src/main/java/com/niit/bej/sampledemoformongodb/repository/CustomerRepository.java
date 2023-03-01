@@ -15,4 +15,7 @@ public interface CustomerRepository extends MongoRepository<Customer, Integer> {
     @Query("{'custAddress.city':?0}")
 //db.customer.find({"custAddress.city":?})
     List<Customer> findByCustomerCity(String city);
+
+    @Query("{'custAddress.city':?1,custType:?0}")
+    List<Customer> findByCustomerCityAndType(String type, String city);
 }

@@ -14,4 +14,7 @@ public interface CustomerService {
     Customer getCustomerByEmail(String emailid);
 
     List<Customer> getAllCustomerByCity(String city);
+
+    List<Customer> getAllCustomerByCityAndType(String city, String type);
+
 }
