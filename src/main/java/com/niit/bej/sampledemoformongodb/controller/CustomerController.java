@@ -54,4 +54,13 @@ public class CustomerController {
         else
             return new ResponseEntity<>(fetchedCustomer, HttpStatus.FOUND);
     }
+
+    @GetMapping("/getcustomerbycity/{city}")
+    public ResponseEntity<?> getOneCustomerByCity(@PathVariable String city) {
+        List<Customer> fetchedCustomer = customerService.getAllCustomerByCity(city);
+        if (fetchedCustomer.isEmpty())
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        else
+            return new ResponseEntity<>(fetchedCustomer, HttpStatus.FOUND);
+    }
 }

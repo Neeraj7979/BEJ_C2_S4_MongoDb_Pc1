@@ -12,4 +12,6 @@ public interface CustomerService {
     Customer getCustomerId(Integer id);
 
     Customer getCustomerByEmail(String emailid);
+
+    List<Customer> getAllCustomerByCity(String city);
 }

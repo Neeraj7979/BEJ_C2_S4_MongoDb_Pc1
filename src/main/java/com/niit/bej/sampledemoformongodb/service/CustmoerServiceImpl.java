@@ -48,4 +48,9 @@ public class CustmoerServiceImpl implements CustomerService {
         else
             return null;
     }
+
+    @Override
+    public List<Customer> getAllCustomerByCity(String city) {
+        return customerRepository.findByCustomerCity(city);
+    }
 }
